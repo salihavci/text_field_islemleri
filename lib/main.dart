@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
       ),
       home: TextFieldIslemleri(
-        title: 'Textfield işlemleri',
+        title: 'Textfield işlemleri.',
       ),
     );
   }
