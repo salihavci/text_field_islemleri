@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:text_field_islemleri/diger_form_elemanlari.dart';
+import 'package:text_field_islemleri/global_key_kullanimi.dart';
+import 'package:text_field_islemleri/text_form_field_kullanimi.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,9 +22,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TextFieldIslemleri(
-        title: 'Textfield işlemleri.',
-      ),
+      home: DigerFormElemanlari(),
     );
   }
 }
