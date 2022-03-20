@@ -12,6 +12,14 @@ class _DigerFormElemanlariState extends State<DigerFormElemanlari> {
   String _sehir = "";
   bool _switchState = false;
   double _sliderDeger = 0;
+  String _dropdownNewValue = "Kırmızı";
+  final List<String> _sehirler = <String>[
+    'Ankara',
+    'Bursa',
+    'İzmir',
+    'İstanbul'
+  ];
+  String _secilenSehir = 'Ankara';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,6 +110,75 @@ class _DigerFormElemanlariState extends State<DigerFormElemanlari> {
               divisions: 100,
               label: _sliderDeger.toString(),
             ),
+            DropdownButton<String?>(
+              items: [
+                DropdownMenuItem<String?>(
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 12,
+                        height: 12,
+                        color: Colors.red,
+                        margin: EdgeInsets.only(right: 10),
+                      ),
+                      Text('Kırmızı'),
+                    ],
+                  ),
+                  value: "Kırmızı",
+                ),
+                DropdownMenuItem<String?>(
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 12,
+                        height: 12,
+                        color: Colors.yellow,
+                        margin: EdgeInsets.only(right: 10),
+                      ),
+                      Text('Sarı'),
+                    ],
+                  ),
+                  value: "Sarı",
+                ),
+                DropdownMenuItem<String?>(
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 12,
+                        height: 12,
+                        color: Colors.blue,
+                        margin: EdgeInsets.only(right: 10),
+                      ),
+                      Text('Mavi'),
+                    ],
+                  ),
+                  value: "Mavi",
+                ),
+              ],
+              onChanged: (newValue) {
+                setState(() {
+                  _dropdownNewValue = newValue!;
+                });
+              },
+              hint: Text('Seçiniz'),
+              value: _dropdownNewValue,
+            ),
+            DropdownButton<String>(
+              items: _sehirler.map(
+                (e) {
+                  return DropdownMenuItem<String>(
+                    child: Text(e),
+                    value: e,
+                  );
+                },
+              ).toList(),
+              onChanged: (s) {
+                setState(() {
+                  _secilenSehir = s!;
+                });
+              },
+              value: _secilenSehir,
+            )
           ],
         ),
       ),
